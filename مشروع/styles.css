@@ -183,7 +183,7 @@ padding-top: 90px;
 
 .cards-container {
   position: absolute;
-  bottom: -250px; /* لتظهر فوق الصورة الرئيسية */
+  bottom: -150px; /* لتظهر فوق الصورة الرئيسية */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -214,10 +214,75 @@ margin: 20px 0;
 background-color: #d5b565;
 height: 5px;
 }
-
-.we-info{
+.we-info {
+  direction: rtl;
   background-color: #fff8e6;
   width: 100%;
-  height: 120vh;
-  z-index: 1;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px;
+}
+
+.we-info #sport {
+  width: 60%; /* حجم الصورة */
+  border: 7px solid #ffffff; /* إطار للصورة */
+  
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 200px;
+  height: 500px;margin-right: 100px;
+}
+
+.we-info-content {
+  width: 40%; /* حجم المحتوى */
+  padding-top: 200px; /* مسافة من الأعلى */
+}
+
+.we-info h1 {
+  font-size: 2.4rem;
+  color: #134a56;
+}
+
+.we-info p {
+  font-size: 1.2rem;
+  color: #465b52;
+  line-height: 1.8;
+}
+
+.check {
+  display: flex; /* يجعل العناصر على نفس السطر */
+  justify-content: center; /* توسيط العناصر */
+  align-items: center; /* محاذاة العناصر عموديًا */
+  width: 100%;
+  padding: 20px;
+  gap: 30px; /* مسافة متساوية بين العناصر */
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* مسافة بين الصورة والعنوان */
+  white-space: nowrap; /* يمنع نزول النص */
+}
+
+.check-item img {
+  width: 30px; /* حجم الصورة */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .we-info {
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* توسيط العناصر */
+  }
+
+  .we-info #sport {
+    width: 80%; /* زيادة عرض الصورة على الشاشات الصغيرة */
+  }
+
+  .we-info-content {
+    width: 100%; /* عرض المحتوى بالكامل */
+    padding-top: 20px; /* تقليل المسافة من الأعلى */
+  }
 }
