@@ -270,19 +270,3 @@ height: 5px;
   width: 30px; /* حجم الصورة */
   height: auto;
 }
-
-@media (max-width: 768px) {
-  .we-info {
-    flex-direction: column; /* ترتيب العناصر عمودياً */
-    align-items: center; /* توسيط العناصر */
-  }
-
-  .we-info #sport {
-    width: 80%; /* زيادة عرض الصورة على الشاشات الصغيرة */
-  }
-
-  .we-info-content {
-    width: 100%; /* عرض المحتوى بالكامل */
-    padding-top: 20px; /* تقليل المسافة من الأعلى */
-  }
-}
