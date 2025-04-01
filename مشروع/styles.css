@@ -183,7 +183,7 @@ padding-top: 90px;
 
 .cards-container {
   position: absolute;
-  bottom: -130px; /* لتظهر فوق الصورة الرئيسية */
+  bottom: -250px; /* لتظهر فوق الصورة الرئيسية */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
