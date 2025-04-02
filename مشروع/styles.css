@@ -1,7 +1,7 @@
 *{
   padding: 0;
   margin:0;
-  font-family: "Noto Sans Arabic", sans-serif;
+  font-family: "Amiri", serif;
   box-sizing: border-box;
 }
 :root {
@@ -271,18 +271,92 @@ height: 5px;
   height: auto;
 }
 
+
+#title{
+  text-align: center;
+  padding: 100px;
+  background-color: #134a56;
+  color: #fff;
+  font-weight: 400;
+}
+
+.sports-container {
+  padding: 30px 30px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff8e6;
+  flex-wrap: wrap;
+}
+
+.sports-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 32%;
+  margin-bottom: 20px ;
+  overflow: hidden;
+  text-align:right;
+  padding: 10px;
+  height: auto; /* تعيين ارتفاع ثابت */
+ 
+ 
+  
+}
+
+.sports-card img {
+  width: 100%;
+  height: 450px;
+  border: 4px solid  #134a56;
+  border-radius: 10px;
+}
+
+.sports-card h3 {
+  font-size: 2.2rem;
+  color: #134a56;
+  margin: 15px;
+  text-wrap: nowrap;
+ 
+}.sports-card span{
+  font-size:30px;
+}
+
+.sports-card p {
+  font-size: 1.5rem;
+  color: #465b52;
+  padding: 0 15px 15px;
+}
+
+.sports-card button {
+  background-color: #d5b565;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px;
+  transition: background-color 0.3s;
+  font-size: 2rem;
+}
+
+.sports-card button:hover {
+  background-color: #b89c4d; /* لون عند التحويم */
+}
+.taekwondo-card {
+  margin: 0 auto; /* يحاذي البطاقة في المنتصف */
+}
 @media (max-width: 768px) {
-  .we-info {
-    flex-direction: column; /* ترتيب العناصر عمودياً */
-    align-items: center; /* توسيط العناصر */
+  .cards-container {
+    flex-direction: column; /* عناصر عمودية على الشاشات الصغيرة */
+    align-items: center;
   }
-
-  .we-info #sport {
-    width: 80%; /* زيادة عرض الصورة على الشاشات الصغيرة */
+  .sports-card{
+    width:97% ;
+    margin-left: 10px;
+    
+    
   }
-
-  .we-info-content {
-    width: 100%; /* عرض المحتوى بالكامل */
-    padding-top: 20px; /* تقليل المسافة من الأعلى */
+  .check{
+    margin-right:120px;
   }
 }
