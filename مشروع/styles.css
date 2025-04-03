@@ -358,3 +358,150 @@ height: 5px;
     margin-right:120px;
   }
 }
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0d4c57;
+  color: #fff;
+  gap: 15px;
+  padding-top: 90px;
+}
+
+.form-section, .info-section {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  padding: 40px;
+  background: #03828e;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2, .info-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input, .form-section textarea {
+  margin-bottom: 25px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  direction: rtl;
+}
+
+.form-section button {
+  padding: 10px;
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-section button:hover {
+  background-color: #b89430;
+}
+
+.info-section {
+  text-align: center;
+  
+}
+
+.info-section p {
+  margin: 10px 0;
+  color:#fff ;
+}
+
+.info-section .icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.map {
+  width: 100%;
+  height: 200px;
+  background: #ddd;
+  border-radius: 4px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* بدون تحريك افتراضيًا */
+.form-section,
+.info-section {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* تحريك عند ظهور العنصر في الشاشة */
+.form-section.active {
+  animation: slideFromLeft 1.5s ease-out forwards;
+}
+
+.info-section.active {
+  animation: slideFromRight 1.5s ease-out forwards;
+}
+
+
+.form-section input:focus,
+.form-section textarea:focus {
+  transform: scale(1.05); /* تكبير الحقل بنسبة 5% */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* تغيير لون الإطار عند الكتابة */
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: none; /* إزالة الحدود الافتراضية */
+  border: 2px solid #0ba2b0; /* تغيير لون الإطار إلى الذهبي */
+  box-shadow: 0 0 8px rgba(7, 203, 221, 0.675); /* إضافة توهج خفيف */
+}
