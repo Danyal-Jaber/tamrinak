@@ -1,0 +1,241 @@
+/* mobile.css - تخصيص الأنماط للهواتف (شاشات أصغر من 768px) */
+
+/* تعديل أحجام الخطوط والمسافات */
+h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-size: 14px;
+    margin: 10px 0 15px;
+  }
+  
+  /* تعديل تخطيط الهيدر وقائمة التنقل */
+  #header {
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+    position: relative; /* لتفادي التداخل عند تغيير التخطيط */
+  }
+  
+  #navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  #navbar li {
+    padding: 5px 0;
+  }
+  
+  /* تعديل أزرار الهيدر */
+  #creat-btn,
+  #login-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  /* تعديل قسم الهيرو */
+  .hero-section {
+    height: auto;
+    padding-top: 70px;
+  }
+  
+  .hero-content {
+    margin: 150px 0 80px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  
+  /* تعديل حاوية البطاقات بحيث تُعرض بشكل عمودي */
+  .cards-container {
+    position: static;
+    transform: none;
+    margin: 20px auto;
+    gap: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ;
+  }
+  
+  .card {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  /* قسم "من نحن؟" - إعادة ترتيب العناصر لتظهر عموديًا */
+  .we-info {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .we-info-content {
+    width: 100%;
+    padding-top: 20px;
+  }
+  
+  .we-info #sport {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  /* قسم العنوان */
+  #title {
+    padding: 50px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  /* قسم بطاقات الرياضات - عرض عمودي ومحاذاة مركزية */
+  .sports-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .sports-card {
+    width: 95%;
+    margin: 10px 0;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .sports-card img {
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  /* قسم التواصل - تنظيم المحتويات بشكل عمودي */
+  .contact-container {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .form-section,
+  .info-section {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  /* تقليل ارتفاع خريطة الموقع */
+  .map {
+    height: 150px;
+  }
+  
+
+  /* تنسيق زر القائمة (الهامبرغر) */
+.menu-toggle {
+    display: none; /* يظهر فقط على الشاشات الصغيرة */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+  }
+  
+  .menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px auto;
+    transition: all 0.3s ease;
+    background-color: var(--primary-border-color);
+  }
+  
+  /* قائمة التنقل الافتراضية */
+  #navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* تأثيرات عند التحويم على روابط القائمة */
+  #navbar li a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #fff;
+  }
+  
+  /* تأثير تفعيل العنصر */
+  #navbar li a:hover,
+  #navbar li a.active {
+    color: var(--primary-border-color);
+  }
+  
+  /* القاعدة العامة لقائمة التنقل */
+  #navbar li {
+    list-style: none;
+    padding: 10px 20px;
+    position: relative;
+  }
+  
+  /* التأثير الخاص بخط التسطير */
+  #navbar li a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-border-color);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+    transition: width 0.3s ease;
+  }
+  
+  #navbar li a:hover::after,
+  #navbar li a.active::after {
+    width: 30%;
+  }
+  
+  /* تحسينات لقائمة التنقل على الهواتف */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    /* إخفاء القائمة افتراضيًا */
+    #navbar {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      background: rgba(213, 181, 101, 0.9);
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  
+    #navbar.active {
+      display: flex;
+    }
+  
+    /* تعديل تباعد عناصر القائمة */
+    #navbar li {
+      padding: 12px 0;
+    }.check{
+      margin-right: -17px;
+    }
+  }
+  
