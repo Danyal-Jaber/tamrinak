@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرياضات</title>
+   <link rel="stylesheet" href="sports.css">
+
+   <style>
+    
+  </style>
+
+</head>
+<body>
+  
+
+  <div class="sports-row" id="sports-container">
+    <!-- الرياضات تنضاف تلقائيًا هنا -->
+  </div>
+
+
+
+  <script>  const sports = [
+    { name: "كرة القدم", icon: "../مشروع/icons/game.png" },
+    { name: "كرة السلة", icon: "../مشروع/icons/basketball.png" },
+    { name: "الكاراتيه", icon: "../مشروع/icons/karate.png" },
+    { name: "السباحة", icon: "../مشروع/icons/swim (1).png" },
+    { name: "العاب الكترونية", icon: "../مشروع/icons/multiplayer.png" },
+    { name: "كمال الأجسام", icon: "../مشروع/icons/gym.png" },
+    { name: "التنس", icon: "../مشروع/icons/tennis.png" },
+    { name: "الكرة الطائرة", icon: "../مشروع/icons/volleyball.png" },
+    { name: "البولنج ", icon: "../مشروع/icons/bowling.png" },
+    { name: "الفروسية", icon: "../مشروع/icons/barrier.png" },
+    { name: " تايكوندو", icon: "../مشروع/icons/taekwondo.png" },
+    { name: "الرماية", icon: "../مشروع/icons/weapon.png" },
+    
+  ];
+
+  const container = document.getElementById("sports-container");
+
+  sports.forEach(sport => {
+    const div = document.createElement("div");
+    div.className = "sport-item";
+    div.innerHTML = `
+      <img src="${sport.icon}" class="sport-icon" alt="${sport.name}">
+      <div class="sport-name">${sport.name}</div>
+    `;
+    div.onclick = () => {
+      console.log("اخترت:", sport.name);
+      // ممكن توديه لصفحة المرافق هنا
+    };
+    container.appendChild(div);
+  });
+  </script>
+</body>
+</html>

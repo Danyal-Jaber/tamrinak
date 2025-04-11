@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    direction: rtl;
+    background: #fff;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+  }
+
+  .sports-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:3rem 2rem; /* مسافات بين العناصر عرضيًا وعموديًا */
+    max-width: 800px;
+    margin: 0 auto; /* توسيط الصف */
+    
+  }
+  .sport-item {
+    width: calc(33.333% - 1.5rem); /* 3 عناصر بالصف مع مسافات */
+    text-align: center;
+    cursor: pointer;
+  } .sport-icon {
+    width: 100px;
+    height: 100px;
+   
+    object-fit: cover;
+    margin-bottom: 0.7rem;
+    
+  } 
+  .sport-name {
+    font-size: 1.3rem;
+    color: #237588;
+    font-weight: bold;
+  }
+  @media (max-width: 600px) {
+    .sport-item {
+      width: 100%; /* للهواتف */
+    }
+  }
