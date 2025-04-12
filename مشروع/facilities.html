@@ -97,7 +97,7 @@
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 2;
+  z-index:3;
   transition: background-color 0.3s ease;
 }
 
@@ -201,10 +201,17 @@
               <div class="facility-location">📍 ${facility.location}</div>
             </div>
           `;
-          card.onclick = () => {
+          card.addEventListener("click", (e) => {
+  // إذا تم الضغط على زر السلايدر، لا تعمل النقل
+  if (e.target.classList.contains("prev-btn") || e.target.classList.contains("next-btn")) {
+    e.stopPropagation();
+    return;
+  }
+
   localStorage.setItem("selectedFacility", JSON.stringify(facility));
   window.location.href = "facility-details.html";
-};
+});
+
 
           container.appendChild(card);
       
