@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرافق</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          direction: rtl;
+          padding: 2rem;
+          background-color:#fafaf1;
+        }
+    
+        h1 {
+          text-align: center;
+          margin-bottom: 2rem;
+          color: #000000;
+        }
+    
+        .facilities-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          justify-content: center;
+          gap:2rem ;
+        }
+    
+        .facility-card {
+          background-color: white;
+          border-radius: 15px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          width: 300px;
+          overflow: hidden;
+          padding-bottom: 1.5rem;
+            cursor: pointer;
+        }
+    
+        .facility-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+        }
+    
+        .facility-info {
+          padding: 1rem;
+        }
+    
+        .facility-name {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          color: #237588;
+        }
+    
+        .facility-description {
+          font-size: 0.95rem;
+          color: #555;
+        }
+    
+        .facility-location {
+          margin-top: 0.5rem;
+          font-size: 0.85rem;
+          color: #888;
+        }
+        .image-slider {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.slider-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #444;
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.prev-btn {
+  right: 5px;
+}
+
+.next-btn {
+  left: 5px;
+}
+      </style>
+</head>
+<body>
+    <h1 id="sport-title">المرافق لـ: </h1>
+
+    <div class="facilities-container" id="facilities-container">
+      <!-- البطاقات تُضاف هنا -->
+    </div>
+  
+    <script>
+        // جلب اسم الرياضة من الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        const sportName = urlParams.get('sport');
+        document.getElementById("sport-title").textContent += sportName;
+      
+        // المرافق المتوفرة
+        const allFacilities = [
+          {
+            sport: "كرة القدم",
+            name: "ستاد عمان الدولي",
+            description: "ملعب عشبي مجهز لإقامة المباريات والتدريب.",
+            location: "عمان - المدينة الرياضية ",
+            images: [
+              "../مشروع/facility photos/amman staduim.gif",
+              "../مشروع/facility photos/amman staduim2.jpg",
+              "../مشروع/facility photos/amman staduim 3.jpeg"
+            ]
+          },
+            {
+                sport: "كرة القدم",
+                name: "ملعب الملك عبدالله الثاني",
+                description: "ملعب متعدد الاستخدامات يستضيف مباريات كرة القدم.",
+                location: "عمان - القويسمة",
+                images: [
+                "../مشروع/facility photos/ملعب القويسمة.jpg",
+                "../مشروع/facility photos/ملعب القويسمة1.jpeg"
+                ]
+            },
+
+          
+            {
+                sport: "كرة السلة",
+                name: "صالة الأمير حمزة",
+                description: "صالة رياضية مخصصة لمباريات كرة السلة.",
+                location: "عمان - المدينة الرياضية",
+                images: [
+                "",
+                ""
+                ]
+            },
+          {
+            sport: "كرة السلة",
+            name: "صالة المدينة الرياضية",
+            description: "صالة مغطاة تقام فيها مباريات دوري السلة.",
+            location: "عمان - المدينة الرياضية",
+            images: [
+              "../مشروع/images/basket1.jpg",
+              "../مشروع/images/basket1_2.jpg"
+            ]
+          }
+          // أضف المزيد حسب الحاجة
+        ];
+      
+        // تصفية المرافق حسب الرياضة المختارة
+        const filteredFacilities = allFacilities.filter(facility => facility.sport === sportName);
+      
+        // عرض البطاقات
+        const container = document.getElementById("facilities-container");
+      
+        filteredFacilities.forEach(facility => {
+          const card = document.createElement("div");
+          card.className = "facility-card";
+      
+          const images = facility.images.map((src, index) => `
+            <img src="${src}" class="slider-image ${index === 0 ? 'active' : ''}" alt="${facility.name}">
+          `).join('');
+      
+          card.innerHTML = `
+            <div class="image-slider">
+              ${images}
+              <button class="prev-btn">&#10094;</button>
+              <button class="next-btn">&#10095;</button>
+            </div>
+            <div class="facility-info">
+              <div class="facility-name">${facility.name}</div>
+              <div class="facility-description">${facility.description}</div>
+              <div class="facility-location">📍 ${facility.location}</div>
+            </div>
+          `;
+          card.onclick = () => {
+  localStorage.setItem("selectedFacility", JSON.stringify(facility));
+  window.location.href = "facility-details.html";
+};
+
+          container.appendChild(card);
+      
+          // التحكم في السلايدر داخل كل بطاقة
+          const slider = card.querySelectorAll(".slider-image");
+          let current = 0;
+          const showSlide = (n) => {
+            slider.forEach(img => img.classList.remove("active"));
+            slider[n].classList.add("active");
+          };
+          card.querySelector(".next-btn").onclick = () => {
+            current = (current + 1) % slider.length;
+            showSlide(current);
+          };
+          card.querySelector(".prev-btn").onclick = () => {
+            current = (current - 1 + slider.length) % slider.length;
+            showSlide(current);
+          };
+        });
+
+
+    </script>
+  
+</body>
+</html>

@@ -7,6 +7,51 @@
    <link rel="stylesheet" href="sports.css">
 
    <style>
+    body {
+    font-family: sans-serif;
+    direction: rtl;
+    background: #fff;
+    padding: 2rem;
+    background-color: #fafaf1;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+  }
+
+  .sports-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:3rem 2rem; /* مسافات بين العناصر عرضيًا وعموديًا */
+    max-width: 800px;
+    margin: 0 auto; /* توسيط الصف */
+    
+  }
+  .sport-item {
+    width: calc(33.333% - 1.5rem); /* 3 عناصر بالصف مع مسافات */
+    text-align: center;
+    cursor: pointer;
+  } .sport-icon {
+    width: 100px;
+    height: 100px;
+   
+    object-fit: cover;
+    margin-bottom: 0.7rem;
+    
+  } 
+  .sport-name {
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: bold;
+  }
+  @media (max-width: 600px) {
+    .sport-item {
+      width: 100%; /* للهواتف */
+    }
+  }
     
   </style>
 
@@ -46,9 +91,10 @@
       <div class="sport-name">${sport.name}</div>
     `;
     div.onclick = () => {
-      console.log("اخترت:", sport.name);
-      // ممكن توديه لصفحة المرافق هنا
-    };
+  // ننتقل إلى صفحة "facilities.html" مع تمرير اسم الرياضة في الرابط
+  window.location.href = `facilities.html?sport=${encodeURIComponent(sport.name)}`;
+};
+
     container.appendChild(div);
   });
   </script>
