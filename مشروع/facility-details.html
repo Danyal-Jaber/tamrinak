@@ -1,53 +1,92 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>تفاصيل المرفق</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+    
     body {
-      font-family: sans-serif;
-      direction: rtl;
-      margin: 2rem;
-      background-color: #f9f9f9;
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #fafaf1;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    header h1 {
+      color: #237588;
+      margin: 0;
+      font-size: 2rem;
     }
 
     .main-container {
       display: flex;
       gap: 2rem;
       align-items: flex-start;
-      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
-
-    .images-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      flex: 2;
+    
+    .slider-container {
+      width: 55%;
+      position: relative;
     }
-
-    .images-grid img {
+    
+    .slider-image {
       width: 100%;
-      border-radius: 10px;
+      height: 400px;
       object-fit: cover;
+      border-radius: 10px;
+      display: block;
     }
-
+    
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
+    
     .details {
-      flex: 1;
-      background: white;
+      width: 45%;
+      background-color: white;
       padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
-    .details h2 {
-      color: #237588;
-    }
-
+    
     .detail-section {
-      margin: 1rem 0;
+      margin: 1.5rem 0; /* زيادة المسافة بين العناصر */
     }
-
+    
+    .map-container {
+      width: 100%;
+      height: 200px;
+      margin-top: 1.5rem; /* زيادة المسافة */
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: none;
+    }
+    
     .reserve-btn {
       display: block;
       width: 100%;
@@ -60,48 +99,581 @@
       cursor: pointer;
       margin-top: 2rem;
     }
-
-    .map, .social-links {
-      margin-top: 1rem;
+    
+    .reviews-section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
+    
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem; /* زيادة المسافة */
+    }
+    
+    .average-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .stars {
+      color: #FFD700;
+      font-size: 1.5rem;
+    }
+    
+    .add-review-btn {
+      background-color: #237588;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Tajawal', sans-serif;
+      margin-bottom: 1.5rem; /* زيادة المسافة */
+    }
+    
+    .review-form {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .rating-stars {
+      display: flex;
+      gap: 5px;
+      margin: 1.5rem 0; /* زيادة المسافة */
+      direction: ltr;
+      justify-content: flex-end;
+    }
+    
+    .rating-stars span {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    
+    .rating-stars span.active {
+      color: #FFD700;
+    }
+    
+    .review-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      resize: vertical;
+      min-height: 120px; /* زيادة الارتفاع */
+      font-family: 'Tajawal', sans-serif;
+      margin: 1.5rem 0; /* زيادة المسافة */
+    }
+    
+    .submit-review-btn {
+      background-color: #237588;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Tajawal', sans-serif;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+    
+    .review-item {
+      background-color: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem; /* زيادة المسافة */
+      border-right: 4px solid #237588;
+      position: relative;
+    }
+    
+    .review-header {
+      display: flex;
+      justify-content: right;
+      margin-bottom: 1rem; /* زيادة المسافة */
+      gap: 1.5rem; /* زيادة المسافة */
+    }
+    
+    .reviewer-name {
+      font-weight: bold;
+      color: #237588;
+      margin-bottom: 0.5rem; /* زيادة المسافة */
+    }
+    
+    .review-rating {
+      color: #FFD700;
+      font-size: 1.2rem;
+     
+      
+    }
+    
+    .review-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  margin-right: 10px;
+  text-align: left;
+}
+
+    
+    .review-actions {
+      position: absolute;
+      left: 1.5rem; /* زيادة المسافة */
+      top: 1.5rem; /* زيادة المسافة */
+      display: flex;
+      gap: 1.5rem; /* زيادة المسافة بين الأزرار */
+    }
+    
+    .edit-review-btn, .delete-review-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    
+    .edit-review-btn {
+      background-color: #f0f7ff;
+    }
+    
+    .edit-review-btn:hover {
+      color: #237588;
+      background-color: #e1f0ff;
+    }
+    
+    .delete-review-btn {
+      background-color: #fff0f0;
+    }
+    
+    .delete-review-btn:hover {
+      color: #d9534f;
+      background-color: #ffe1e1;
+    }
+    
+    .review-text {
+      margin-top: 1rem; /* زيادة المسافة */
+      line-height: 1.6;
+    }
+    
+    .booking-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .booking-form {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      width: 400px;
+      max-width: 90%;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.8rem; /* زيادة المسافة */
+      font-weight: bold;
+    }
+    
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Tajawal', sans-serif;
+    }
+    
+    .pay-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #237588;
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1.5rem; /* زيادة المسافة */
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      
+      .slider-container,
+      .details {
+        width: 100%;
+      }
+      
+      .review-actions {
+        position: static;
+        margin-bottom: 1rem;
+        justify-content: flex-end;
+      }
+    }
+    
   </style>
 </head>
 <body>
-  <h1>تفاصيل المرفق</h1>
-  <div class="main-container">
-    <div class="images-grid" id="images-container">
-      <!-- الصور تُعرض هنا -->
+  <header>
+    <h1 id="facility-title">اسم المرفق</h1>
+  </header>
+
+  <main class="main-container">
+    <section class="slider-container" aria-label="معرض الصور">
+      <img id="sliderImage" class="slider-image" src="" alt="صورة المرفق" loading="lazy" />
+      <button class="slider-btn prev">‹</button>
+      <button class="slider-btn next">›</button>
+    </section>
+
+    <section class="details" id="details-container">
+      <!-- سيتم تعبئة التفاصيل هنا -->
+    </section>
+  </main>
+
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <h2>التقييمات والمراجعات</h2>
+      <div class="average-rating">
+        <span id="average-rating-value">0.0</span>
+        <div class="stars" id="average-stars">☆☆☆☆☆</div>
+      </div>
     </div>
-    <div class="details" id="details-container">
-      <!-- التفاصيل تُعرض هنا -->
+    
+    <button class="add-review-btn" id="addReviewBtn">أضف تقييمك</button>
+    
+    <div class="review-form" id="reviewForm">
+      <h3 id="review-form-title">أضف تقييمك</h3>
+      <div class="rating-stars" id="ratingStars">
+        <span data-rating="1">★</span>
+        <span data-rating="2">★</span>
+        <span data-rating="3">★</span>
+        <span data-rating="4">★</span>
+        <span data-rating="5">★</span>
+      </div>
+      <textarea id="reviewText" placeholder="شاركنا تجربتك..."></textarea>
+      <button class="submit-review-btn" id="submitReviewBtn">إرسال التقييم</button>
+    </div>
+    
+    <div id="reviews-container">
+      <!-- التقييمات ستظهر هنا -->
+    </div>
+  </section>
+
+  <!-- نافذة الحجز -->
+  <div class="booking-modal" id="bookingModal">
+    <div class="booking-form">
+      <h2>حجز المرفق</h2>
+      <div class="form-group">
+        <label for="booking-date">تاريخ الحجز</label>
+        <input type="date" id="booking-date" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-time">وقت الحجز (مثال: 14:30)</label>
+        <input type="text" id="booking-time" placeholder="أدخل الوقت المفضل" required>
+      </div>
+      <button class="pay-btn" id="payBtn">الدفع</button>
     </div>
   </div>
 
   <script>
-    const facility = JSON.parse(localStorage.getItem("selectedFacility"));
-    
-    const imagesContainer = document.getElementById("images-container");
-    facility.images.forEach(imgSrc => {
-      const img = document.createElement("img");
-      img.src = imgSrc;
-      imagesContainer.appendChild(img);
+    // تعريف المتغيرات العامة
+    let currentFacility = {};
+let currentImageIndex = 0;
+let selectedRating = 0;
+let editingReviewId = null;
+
+// دالة لتغيير الصورة
+function changeImage(direction) {
+  currentImageIndex = (currentImageIndex + direction + currentFacility.images.length) % currentFacility.images.length;
+  document.getElementById('sliderImage').src = currentFacility.images[currentImageIndex];
+}
+
+// دالة لمعالجة الدفع
+function processPayment() {
+  const date = document.getElementById('booking-date').value;
+  const time = document.getElementById('booking-time').value;
+
+  if (!date) {
+    alert('يرجى اختيار التاريخ');
+    return;
+  }
+
+  if (!time || !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(time)) {
+    alert('يرجى إدخال وقت صحيح (مثال: 14:30)');
+    return;
+  }
+
+  alert(`تم حجز المرفق بنجاح!\nالتاريخ: ${date}\nالوقت: ${time}`);
+  document.getElementById('bookingModal').style.display = 'none';
+  document.getElementById('booking-date').value = '';
+  document.getElementById('booking-time').value = '';
+}
+
+// دالة لتحديث متوسط التقييم
+function updateAverageRating() {
+  const allReviews = JSON.parse(localStorage.getItem('facilityReviews')) || [];
+  const reviews = allReviews.filter(r => r.facilityName === currentFacility.name);
+
+  if (reviews.length === 0) {
+    document.getElementById('average-rating-value').textContent = '0.0';
+    document.getElementById('average-stars').innerHTML = '☆☆☆☆☆';
+    return;
+  }
+
+  const avgRating = reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
+  document.getElementById('average-rating-value').textContent = avgRating.toFixed(1);
+
+  const starsContainer = document.getElementById('average-stars');
+  starsContainer.innerHTML = '';
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement('span');
+    star.textContent = i <= Math.round(avgRating) ? '★' : '☆';
+    starsContainer.appendChild(star);
+  }
+}
+
+// دالة لعرض التقييمات الخاصة بالمرفق الحالي
+function renderReviews() {
+  const container = document.getElementById('reviews-container');
+  container.innerHTML = '';
+
+  const allReviews = JSON.parse(localStorage.getItem('facilityReviews')) || [];
+  const reviews = allReviews.filter(r => r.facilityName === currentFacility.name);
+
+  if (reviews.length === 0) {
+    container.innerHTML = '<p style="text-align: center; padding: 2rem;">لا توجد تقييمات حتى الآن</p>';
+    return;
+  }
+
+  reviews.forEach(review => {
+    const reviewEl = document.createElement('div');
+    reviewEl.className = 'review-item';
+    reviewEl.innerHTML = `
+      <div class="review-actions">
+        <button class="edit-review-btn" data-id="${review.id}">✏️ تعديل</button>
+        <button class="delete-review-btn" data-id="${review.id}">🗑️ حذف</button>
+      </div>
+       <div class="review-date">${review.date}</div>
+      <div class="review-header">
+        <div>
+          <div class="reviewer-name">${review.name}</div>
+         </div>
+        <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+      </div>
+      
+        
+      <p class="review-text">${review.comment}</p>
+    `;
+    container.appendChild(reviewEl);
+  });
+
+  document.querySelectorAll('.edit-review-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      editReview(parseInt(this.getAttribute('data-id')));
+    });
+  });
+
+  document.querySelectorAll('.delete-review-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      deleteReview(parseInt(this.getAttribute('data-id')));
+    });
+  });
+}
+
+// دالة لتعديل التقييم
+function editReview(reviewId) {
+  const allReviews = JSON.parse(localStorage.getItem('facilityReviews')) || [];
+  const review = allReviews.find(r => r.id === reviewId && r.facilityName === currentFacility.name);
+
+  if (review) {
+    editingReviewId = reviewId;
+    selectedRating = review.rating;
+    document.getElementById('reviewText').value = review.comment;
+    document.getElementById('reviewForm').style.display = 'block';
+    document.getElementById('review-form-title').textContent = 'تعديل التقييم';
+    document.getElementById('submitReviewBtn').textContent = 'تحديث التقييم';
+    document.getElementById('addReviewBtn').style.display = 'none';
+
+    const stars = document.querySelectorAll('#ratingStars span');
+    stars.forEach((star, index) => {
+      star.classList.toggle('active', index < selectedRating);
     });
 
-    const detailsContainer = document.getElementById("details-container");
-    detailsContainer.innerHTML = `
-      <h2>${facility.name}</h2>
-      <div class="detail-section"><strong>الوصف:</strong> ${facility.description}</div>
-      <div class="detail-section"><strong>📍 الموقع:</strong> ${facility.location}</div>
-      <div class="detail-section"><strong>💰 الأسعار:</strong> يرجى التواصل مباشرة لمعرفة الأسعار الدقيقة.</div>
-      <div class="detail-section map"><strong>🗺️ خريطة:</strong><br>
-        <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(facility.location)}&output=embed" width="100%" height="200" style="border:0;" allowfullscreen></iframe>
+    document.getElementById('reviewForm').scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// دالة لحذف التقييم
+function deleteReview(reviewId) {
+  if (confirm('هل أنت متأكد من حذف هذا التقييم؟')) {
+    let allReviews = JSON.parse(localStorage.getItem('facilityReviews')) || [];
+    allReviews = allReviews.filter(r => r.id !== reviewId);
+    localStorage.setItem('facilityReviews', JSON.stringify(allReviews));
+    renderReviews();
+    updateAverageRating();
+  }
+}
+
+// دالة لإرسال التقييم
+function submitReview() {
+  const comment = document.getElementById('reviewText').value.trim();
+
+  if (selectedRating === 0) {
+    alert('يرجى اختيار تقييم من خلال النقر على النجوم');
+    return;
+  }
+
+  if (!comment) {
+    alert('يرجى كتابة تعليق قبل الإرسال');
+    return;
+  }
+
+  const currentDate = new Date().toLocaleDateString('ar-EG', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  let allReviews = JSON.parse(localStorage.getItem('facilityReviews')) || [];
+
+  if (editingReviewId) {
+    const index = allReviews.findIndex(r => r.id === editingReviewId && r.facilityName === currentFacility.name);
+    if (index !== -1) {
+      allReviews[index] = {
+        ...allReviews[index],
+        rating: selectedRating,
+        comment: comment,
+        date: currentDate
+      };
+    }
+  } else {
+    const newReview = {
+      id: Date.now(),
+      name: 'مستخدم',
+      date: currentDate,
+      rating: selectedRating,
+      comment: comment,
+      facilityName: currentFacility.name // ربط التقييم بالمرفق
+    };
+    allReviews.unshift(newReview);
+  }
+
+  localStorage.setItem('facilityReviews', JSON.stringify(allReviews));
+  renderReviews();
+  updateAverageRating();
+  resetReviewForm();
+}
+
+// دالة لإعادة تعيين نموذج التقييم
+function resetReviewForm() {
+  document.getElementById('reviewForm').style.display = 'none';
+  document.getElementById('reviewText').value = '';
+  document.getElementById('submitReviewBtn').textContent = 'إرسال التقييم';
+  document.getElementById('review-form-title').textContent = 'أضف تقييمك';
+  document.getElementById('addReviewBtn').style.display = 'block';
+  selectedRating = 0;
+  editingReviewId = null;
+
+  document.querySelectorAll('#ratingStars span').forEach(star => {
+    star.classList.remove('active');
+  });
+}
+
+// تهيئة الصفحة عند التحميل
+document.addEventListener('DOMContentLoaded', function () {
+  currentFacility = JSON.parse(localStorage.getItem('selectedFacility')) || {
+    name: 'اسم المرفق الرياضي',
+    description: 'وصف مفصل للمرفق الرياضي والخدمات المقدمة فيه.',
+    location: 'عنوان المرفق، المدينة',
+    images: [
+      'https://via.placeholder.com/800x400?text=صورة+المرفق+1',
+      'https://via.placeholder.com/800x400?text=صورة+المرفق+2',
+      'https://via.placeholder.com/800x400?text=صورة+المرفق+3'
+    ]
+  };
+
+  document.getElementById('facility-title').textContent = currentFacility.name;
+  document.getElementById('sliderImage').src = currentFacility.images[0];
+
+  document.getElementById('details-container').innerHTML = `
+    <div class="detail-section"><strong>الوصف:</strong> ${currentFacility.description}</div>
+    <div class="detail-section"><strong>📍 الموقع:</strong> ${currentFacility.location}</div>
+    <div class="detail-section"><strong>💰 الأسعار:</strong> يرجى التواصل مباشرة لمعرفة الأسعار الدقيقة.</div>
+    <div class="detail-section"><strong>🗺 خريطة:</strong>
+      <div class="map-container">
+        <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(currentFacility.location)}&output=embed" allowfullscreen title="خريطة الموقع"></iframe>
       </div>
-      <div class="detail-section social-links">
-        <strong>🌐 تواصل معنا:</strong><br>
-        <a href="#">فيسبوك</a> | <a href="#">إنستغرام</a> | <a href="#">واتساب</a>
-      </div>
-      <button class="reserve-btn">🔒 احجز الآن</button>
-    `;
+    </div>
+    <button class="reserve-btn" id="reserveBtn">🔒 احجز الآن</button>
+  `;
+
+  document.querySelector('.slider-btn.prev').addEventListener('click', function () {
+    changeImage(-1);
+  });
+
+  document.querySelector('.slider-btn.next').addEventListener('click', function () {
+    changeImage(1);
+  });
+
+  document.querySelectorAll('#ratingStars span').forEach(star => {
+    star.addEventListener('click', function () {
+      selectedRating = parseInt(this.getAttribute('data-rating'));
+      const stars = document.querySelectorAll('#ratingStars span');
+      stars.forEach((s, idx) => {
+        s.classList.toggle('active', idx < selectedRating);
+      });
+    });
+  });
+
+  document.getElementById('addReviewBtn').addEventListener('click', function () {
+    document.getElementById('reviewForm').style.display = 'block';
+    this.style.display = 'none';
+    document.getElementById('reviewForm').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('submitReviewBtn').addEventListener('click', submitReview);
+
+  document.getElementById('reserveBtn').addEventListener('click', function () {
+    document.getElementById('bookingModal').style.display = 'flex';
+  });
+
+  document.getElementById('payBtn').addEventListener('click', processPayment);
+
+  document.getElementById('bookingModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+
+  renderReviews();
+  updateAverageRating();
+});
   </script>
 </body>
 </html>
