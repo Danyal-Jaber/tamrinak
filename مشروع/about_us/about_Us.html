@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>حول الموقع</title>
     <link rel="stylesheet" href="about_us.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
+
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>مرحباً بك في <span style="color:#F5C45E;font-size: 40px;">Tamrinak</span></h1>
+    <h2>
+      نحن هنا لتقديم تجربة
+      <span id="rotating-word" class="fade-word">سريعة</span>
+      لحجز المرافق الرياضية.
+    </h2>
+    <a href="/مشروع/sports.html" class="start-button">ابدأ التجربة</a>
+  </div>
+  </div>
+
   <div class="container">
     <div class="img-people">
       <img src="people_basketball.jpg" alt="People Playing Sports" />
@@ -62,9 +77,114 @@
     </div>
   </div>
   
-  
+
+  <div class="team-container">
+  <div class="team-row">
+
+    <div class="our-team">
+      <div class="picture">
+        <img src="https://picsum.photos/130/130?image=856" alt="Michele Miller">
+      </div>
+      <div class="team-content">
+        <h3 class="name">يزيد محمد الفيومي</h3>
+        <h4 class="title">هندسة البرمجيات</h4>
+      </div>
+      <ul class="social">
+        <li><a href="#" class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+      </ul>
+    </div>
+
+    <div class="our-team">
+      <div class="picture">
+        <img src="https://picsum.photos/130/130?image=856" alt="Patricia Knott">
+      </div>
+      <div class="team-content">
+        <h3 class="name">دانيال أيمن جبر</h3>
+        <h4 class="title">هندسة البرمجيات</h4>
+      </div>
+      <ul class="social">
+        <li><a href="#" class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+      </ul>
+    </div>
+
+    <div class="our-team">
+      <div class="picture">
+        <img src="https://picsum.photos/130/130?image=856" alt="Justin Ramos">
+      </div>
+      <div class="team-content">
+        <h3 class="name">موسى محمد خليل</h3>
+        <h4 class="title">هندسة البرمجيات</h4>
+      </div>
+      <ul class="social">
+        <li><a href="#" class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+      </ul>
+    </div>
+
+    <div class="our-team">
+      <div class="picture">
+        <img src="https://picsum.photos/130/130?image=856" alt="Mary Huntley">
+      </div>
+      <div class="team-content">
+        <h3 class="name">سيف الله المحمديين</h3>
+        <h4 class="title">هندسة البرمجيات</h4>
+      </div>
+      <ul class="social">
+        <li><a href="#" class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+      </ul>
+    </div>
+
+    <div class="our-team">
+      <div class="picture">
+        <img src="https://picsum.photos/130/130?image=856" alt="Justin Ramos">
+      </div>
+      <div class="team-content">
+        <h3 class="name">بكر باسم</h3>
+        <h4 class="title">هندسة البرمجيات</h4>
+      </div>
+      <ul class="social">
+        <li><a href="#" class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
   <script>
-    const counters = document.querySelectorAll('.stat-number');
+    //hero section
+    const words = ["سريعة", "بسيطة", "ذكية", "موثوقة"];
+  const rotatingWord = document.getElementById("rotating-word");
+  let index = 0;
+
+  function changeWord() {
+    // Fade out
+    rotatingWord.classList.remove("fade-in");
+    rotatingWord.classList.add("fade-out");
+
+    setTimeout(() => {
+      // Change text
+      index = (index + 1) % words.length;
+      rotatingWord.textContent = words[index];
+
+      // Fade in
+      rotatingWord.classList.remove("fade-out");
+      rotatingWord.classList.add("fade-in");
+    }, 500); // Time matches CSS transition
+  }
+
+  setInterval(changeWord, 2000); // Change every 4 seconds
+  
+  
+  ///////stats section/////
+ const counters = document.querySelectorAll('.stat-number');
     let statsStarted = false;
   
     const startCount = () => {
