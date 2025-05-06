@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ملف المستخدم</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+      color: #222;
+    }
+
+    .profile-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .profile-header img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #111;
+    }
+
+    .profile-info p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #222;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      background-color: #f3f3f3;
+      transition: all 0.2s ease-in-out;
+      color: #111;
+    }
+
+    input:focus {
+      outline: none;
+      transform: scale(1.02);
+      background-color: #fff;
+      border: 1px solid #007bff;
+    }
+
+    .profile-photo-upload {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .profile-photo-upload img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-photo-upload button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #285f9d;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile-photo-upload button:hover {
+      background-color: #0056b3;
+    }
+.button-group {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .button-group button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .delete-btn {
+      background-color: #ff0000;
+      color: #fff;
+    }
+
+    .cancel-btn {
+      background-color: #d6d4d4;
+      color: #222;
+    }
+
+    .save-btn {
+      background-color: #4cd137;
+      color: white;
+    }.save-btn:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 480px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <div class="profile-header">
+      <img id="profileImage" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="صورة طفل">
+      <div class="profile-info">
+        <h2> احمد محمد</h2>
+        <p>amelie@untitledui.com</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>اسم المستخدم:</label>
+      <div style="display: flex; gap: 12px;">
+        <input type="text" placeholder="الاسم الأول">
+        <input type="text" placeholder="اسم العائلة">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>البريد الإلكتروني:</label>
+      <input type="email" placeholder="amelie@untitledui.com" />
+    </div>
+
+    <div class="form-group">
+      <label>صورة الملف الشخصي</label>
+      <div class="profile-photo-upload">
+        <img id="uploadedImage" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="صورة طفل" />
+        <button onclick="document.getElementById('imageInput').click()">اضغط لتغيير</button>
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>كلمة المرور الجديدة:</label>
+      <input type="password" placeholder="كلمة المرور الجديدة" />
+    </div>
+
+    <div class="form-group">
+      <label>تأكيد كلمة المرور:</label>
+      <input type="password" placeholder="أعد كتابة كلمة المرور" />
+    </div>
+
+    <div class="button-group">
+        <div style="margin-right: auto;">
+          <button class="cancel-btn">إلغاء</button>
+          <button class="save-btn">حفظ التغييرات</button>
+        </div>
+      </div>
+      
+  </div>
+
+  <script>
+    function previewImage(event) {
+      const input = event.target;
+      const image = document.getElementById('uploadedImage');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          image.src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+</body>
+</html>
