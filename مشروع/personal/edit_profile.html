@@ -98,17 +98,10 @@
       gap: 16px;
     }
 
-    .profile-photo-upload img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
     .profile-photo-upload button {
       padding: 8px 12px;
       border: none;
-      background-color: #285f9d;
+      background-color: #0056b3;
       color: white;
       border-radius: 6px;
       cursor: pointer;
@@ -117,40 +110,42 @@
     }
 
     .profile-photo-upload button:hover {
-      background-color: #0056b3;
-    }
-.button-group {
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 24px;
+      background-color: #3074be;
     }
 
-    .button-group button {
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .delete-btn {
-      background-color: #ff0000;
-      color: #fff;
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+  
     }
 
     .cancel-btn {
       background-color: #d6d4d4;
       color: #222;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      
     }
 
     .save-btn {
-      background-color: #4cd137;
+      background-color: #0056b3;
       color: white;
-    }.save-btn:hover {
-      background-color: #45a049;
+      padding: 8px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      
+      font-size: 17px;
+    }
+    .save-btn:hover {
+      background-color: #0b69cd;
     }
 
     @media (max-width: 480px) {
@@ -179,8 +174,7 @@
     <div class="form-group">
       <label>اسم المستخدم:</label>
       <div style="display: flex; gap: 12px;">
-        <input type="text" placeholder="الاسم الأول">
-        <input type="text" placeholder="اسم العائلة">
+        <input type="text" placeholder="الاسم الجديد">
       </div>
     </div>
 
@@ -190,10 +184,9 @@
     </div>
 
     <div class="form-group">
-      <label>صورة الملف الشخصي</label>
+      <label>صورة الملف الشخصي:</label>
       <div class="profile-photo-upload">
-        <img id="uploadedImage" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="صورة طفل" />
-        <button onclick="document.getElementById('imageInput').click()">اضغط لتغيير</button>
+        <button onclick="document.getElementById('imageInput').click()">اضغط لتغيير الصورة</button>
         <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
       </div>
     </div>
@@ -209,18 +202,18 @@
     </div>
 
     <div class="button-group">
-        <div style="margin-right: auto;">
-          <button class="cancel-btn">إلغاء</button>
-          <button class="save-btn">حفظ التغييرات</button>
-        </div>
+      <div style="margin-right: auto;">
+        <button class="cancel-btn">إلغاء</button>
+        <button class="save-btn">حفظ التغييرات</button>
       </div>
+    </div>
       
   </div>
 
   <script>
     function previewImage(event) {
       const input = event.target;
-      const image = document.getElementById('uploadedImage');
+      const image = document.getElementById('profileImage');
       if (input.files && input.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
