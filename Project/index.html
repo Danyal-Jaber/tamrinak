@@ -4,74 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تمرينك - حجز المرافق الرياضية</title>
-  <meta name="description" content="موقع تمرينك يتيح لك استكشاف وحجز المرافق الرياضية بسهولة وأمان في الأردن.">
-  <!-- تضمين خط Google Fonts -->
+  <meta name="description" content="موقع تمرينك استكشاف وحجز المرافق الرياضية في الأردن.">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- ملف الأنماط العام لأجهزة الكمبيوتر -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- ملف الأنماط الخاص بالهواتف -->
-  <link rel="stylesheet" media="(max-width: 768px)" href="mobile.css">
-  <!-- رابط الأيقونة -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="Css/styles.css">
+  <!-- Mobile Styles -->
+  <link rel="stylesheet" media="(max-width: 768px)" href="Css/mobile.css">
+  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-  <!-- قسم الهيدر: يحتوي على زر إنشاء حساب، تسجيل دخول، قائمة التنقل والشعار -->
-  <header id="header">
-    <div class="nav-container">
-      <!-- شعار الموقع -->
-      <div class="logo">
-        <img src="" alt="Tamrinak logo here">
-        </div>        
-      <!-- زر القائمة (الهامبرغر) -->
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <!-- قائمة التنقل الرئيسية -->
-      <nav role="navigation">
-        <ul id="navbar">
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">حول الموقع</a></li>
-          <li><a href="sports.html">الرياضات</a></li>
-          <li><a href="#">حجوزات</a></li>
-          <li><a href="#">تواصل معنا</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <button id="login-btn" onclick="location.href='login.html?section=login'" aria-label="تسجيل الدخول إلى حسابك">تسجيل الدخول</button>
-        <button id="create-btn" onclick="location.href='login.html?section=register'" aria-label="إنشاء حساب جديد">إنشاء حساب</button>
-      </div>
-    </div>
-  </header>
 
-  <!-- المحتوى الرئيسي -->
+  </head>
+<body>
+  <!-- Header Section-->
+ <div id="navbar"></div>
+
+
+  <!-- Main Content -->
   <main>
-    <!-- قسم الهيرو: يحتوي على محتوى البطل وبطاقات التعريف -->
+    <!-- Hero Section: contains the hero text and feature cards -->
     <section class="hero-section">
       <div class="hero-content">
         <h1>إبحث واحجز أفضل المرافق الرياضية</h1>
         <h4>إختر مرفق رياضي - حجز فوري مع دفع آمن</h4>
         <div class="hero-content-btn">
-          <button id="content-btn1">تواصل معنا</button>
-          <button id="content-btn2">من نحن؟</button>
+          <a href="#contact" id="content-btn1">تواصل معنا</a>
+          <a href="about_us/about_Us.html" id="content-btn2">من نحن؟</a>
         </div>
       </div>
       <div class="cards-container">
         <div class="card">
-          <img src="soccer-player.png" alt="كرة قدم" loading="lazy">
+          <img src="images/soccer-player.png" alt="كرة قدم" loading="lazy">
           <h3>الحجز السهل</h3>
           <hr>
           <p>يسمح الموقع بالحجز بسهولة للأندية والمرافق الرياضية، مما يوفر الوقت والجهد ويضمن لهم مكانًا في الأنشطة المفضلة لديهم.</p>
         </div>
         <div class="card">
-          <img src="Fatcow-Farm-Fresh-Cup-gold.32.png" alt="سهولة الاستخدام" loading="lazy">
+          <img src="images/Fatcow-Farm-Fresh-Cup-gold.32.png" alt="سهولة الاستخدام" loading="lazy">
           <h3>سهولة الاستخدام</h3>
           <hr>
           <p>يتيح للمستخدمين الوصول السريع إلى المرافق الرياضية التي يبحثون عنها.</p>
         </div>
         <div class="card">
-          <img src="4.png" alt="دعم المجتمع الرياضي" loading="lazy">
+          <img src="images/4.png" alt="دعم المجتمع الرياضي" loading="lazy">
           <h3>دعم المجتمع الرياضي</h3>
           <hr>
           <p>يساهم الموقع في بناء مجتمع رياضي قوي من خلال توفير الأماكن الرياضية القريبة منك.</p>
@@ -79,88 +54,89 @@
       </div>
     </section>
 
-    <!-- قسم "من نحن؟" -->
+    <!-- "Who We Are?" Section -->
     <section class="we-info">
       <div class="we-info-content">
-        <h5>/من نحن؟/</h5>
+        
         <h1>إختر مرفقك الرياضي المناسب</h1>
         <h3>!مرحبًا بكم في موقع "تمرينك" في الأردن</h3>
         <p>تمرينك هو موقع إلكتروني يهدف إلى تسهيل عملية استكشاف وحجز المرافق الرياضية في الأردن. يتيح للمستخدمين العثور على ملاعب وصالات رياضية بسهولة، ومعرفة تفاصيلها مثل الموقع، الأسعار، والتوافر.</p>
         <div class="check">
           <div class="check-item">
-            <img src="check.png" alt="حجز آمن" loading="lazy">
+            <i class="fa-solid fa-circle-check"></i>
+            <img src="images/check.png" alt="حجز آمن" loading="lazy">
             <h3>حجز آمن</h3>
           </div>
           <div class="check-item">
-            <img src="check.png" alt="اختيار سريع" loading="lazy">
+            <img src="images/check.png" alt="اختيار سريع" loading="lazy">
             <h3>اختيار سريع</h3>
           </div>
           <div class="check-item">
-            <img src="check.png" alt="أفضل خدمة" loading="lazy">
+            <img src="images/check.png" alt="أفضل خدمة" loading="lazy">
             <h3>أفضل خدمة</h3>
           </div>
         </div>
         <p>يمكن للمستخدمين الحجز مباشرة عبر الموقع، الدفع إلكترونيًا، وترك تقييماتهم بعد الاستخدام. كما يوفر الموقع لأصحاب المرافق الرياضية لوحة تحكم لإدارة حجوزاتهم وزيادة عدد عملائهم.</p>
       </div>
-      <div>
-        <img id="sport" src="sport.jpg" alt="صورة رياضية" loading="lazy">
+      <div id="sport">
+       
       </div>
     </section>
 
-    <!-- قسم الرياضات -->
+    <!-- Sports Section -->
+     
     <section id="sports">
       <div id="title">
-        <h1>إختر رياضتك المفضلة الأن</h1>
+        <h2>إختر رياضتك المفضلة الأن</h2>
       </div>
       <div class="sports-container">
         <div class="sports-card">
-          <img src="karate.jpg" alt="الكاراتيه" loading="lazy">
+          <img src="images/karate.jpg" alt="الكاراتيه" loading="lazy">
           <h3>Karate-كراتيه</h3>
           <p>تعلم مهارات الدفاع عن النفس مع الكاراتيه، رياضة تركز على الانضباط واللياقة البدنية.</p>
           <button>عرض الأندية</button>
         </div>
         <div class="sports-card">
-          <img src="swim.jpg" alt="السباحة" loading="lazy">
+          <img src="images/swim.jpg" alt="السباحة" loading="lazy">
           <h3>Swimming-السباحة</h3>
           <p>استمتع بالسباحة كرياضة مائية رائعة تساعد في تحسين اللياقة البدنية.</p>
           <button>عرض المسابح</button>
         </div>
-        <div class="sports-card">
-          <img src="football2.jpg" alt="كرة القدم" loading="lazy">
+          <div class="sports-card">
+          <img src="images/football2.jpg" alt="كرة القدم" loading="lazy">
           <h3>football-كرة القدم</h3>
           <p>انضم إلى مباريات كرة القدم وطور مهاراتك في هذه الرياضة الجماعية الممتعة.</p>
           <button>عرض الملاعب</button>
         </div>
         <div class="sports-card">
-          <img src="bowling.jpg" alt="لعبة البولينج" loading="lazy">
+          <img src="images/bowling.jpg" alt="لعبة البولينج" loading="lazy">
           <h3>Bowling-لعبة البولينج</h3>
           <p>استمتع بتجربة البولينج في صالات مجهزة بأحدث التقنيات ومختلف المستويات.</p>
-          <button>عرض صالات البولينج</button>
+          <button>عرض الصالات </button>
         </div>
         <div class="sports-card">
-          <img src="ps3.jpg" alt="الرياضات الإلكترونية" loading="lazy">
+          <img src="images/ps3.jpg" alt="الرياضات الإلكترونية" loading="lazy">
           <h3><span>Esports-</span>الرياضات الإلكترونية</h3>
           <p>استمتع بأحدث أجهزة اللعب في بيئة احترافية مع شاشات وأجهزة متطورة.</p>
           <button>عرض الأماكن</button>
         </div>
         <div class="sports-card bodybuilding">
-          <img src="gym.jpg" alt="كمال أجسام" loading="lazy">
+          <img src="images/gym.jpg" alt="كمال أجسام" loading="lazy">
           <h3><span>Bodybuilding-</span>كمال الأجسام</h3>
           <p>قم ببناء العضلات واللياقة البدنية من خلال مجموعة متنوعة من التمارين والتحديات.</p>
           <button>عرض الصالات</button>
         </div>
         <div class="sports-card taekwondo-card">
-          <img src="Taekwondo.jpg" alt="تايكوندو" loading="lazy">
+          <img src="images/Taekwondo.jpg" alt="تايكوندو" loading="lazy">
           <h3>Taekwondo-التايكواندو</h3>
-          <p>تقدم لعبة التايكواندو تجربة مثيرة للاعبين من خلال تقنيات القتال الكورية، بما في ذلك الضربات والركلات، مع إمكانية مواجهة خصوم في مباريات تنافسية.</p>
+          <p> لعبة التايكواندو تجربة للاعبين من خلال القتال بما في ذلك الضربات والركلات.</p>
           <button>عرض الأندية</button>
         </div>
       </div>
     </section>
-
-    <!-- قسم التواصل -->
-    <section class="contact-container">
-      <div class="form-section">
+   <!-- Contact Section -->
+    <section  class="contact-container">
+      <div id="contact" class="form-section">
         <h2>أرسل رسالة لنا</h2>
         <form>
           <input type="text" placeholder="الاسم" required>
@@ -183,7 +159,16 @@
     </section>
   </main>
 
-  <!-- تضمين ملفات جافا سكريبت -->
-  <script src="script.js" defer></script>
+
+ <script>fetch('./navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+            </script>
+
+          
+   <script src="script.js" defer></script>
+
 </body>
 </html>

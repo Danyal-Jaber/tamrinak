@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>حول الموقع</title>
-    <link rel="stylesheet" href="about_us.css" />
+    <link rel="stylesheet" href="about_Us.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
+  <div class="navbar"></div>
 
 <div class="hero-section">
   <div class="hero-content">
@@ -18,7 +19,7 @@
       <span id="rotating-word" class="fade-word">سريعة</span>
       لحجز المرافق الرياضية.
     </h2>
-    <a href="/مشروع/sports.html" class="start-button">ابدأ التجربة</a>
+    <a href="../sports.html" class="start-button">ابدأ التجربة</a>
   </div>
   </div>
 
@@ -158,6 +159,15 @@
 
   </div>
 </div>
+
+
+<script>fetch('./navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+            </script>
+
   <script>
     //hero section
     const words = ["سريعة", "بسيطة", "ذكية", "موثوقة"];

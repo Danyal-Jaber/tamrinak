@@ -1,4 +1,4 @@
-/* إعادة تعيين الأنماط العامة والمتغيرات */
+/* Reset general styles and define variables */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body {
   font-family: var(--font-family);
 }
 
-/* الأنماط العامة للعناصر */
+/* General element styles */
 a {
   text-decoration: none;
   color: #fff;
@@ -48,7 +48,7 @@ p {
   margin: 15px 0 20px;
 }
 
-/* تنسيق الهيدر وقائمة التنقل */
+/* Header and navigation bar styling */
 #header {
   position: fixed;
   top: 0;
@@ -63,10 +63,11 @@ p {
               box-shadow var(--transition-speed) ease;
 }
 
-.menu-toggle{
+.menu-toggle {
   display: none;
 }
-/* حاوية التنقل الداخلية */
+
+/* Navigation inner container */
 .nav-container {
   display: flex;
   align-items: center;
@@ -78,7 +79,7 @@ p {
   direction: rtl;
 }
 
-/* تنسيق الشعار */
+/* Logo styling */
 .logo a {
   transition: color var(--transition-speed) ease;
 }
@@ -87,7 +88,7 @@ p {
   color: var(--primary-border-color);
 }
 
-/* تنسيق قائمة التنقل */
+/* Navigation list styling */
 #navbar {
   display: flex;
   align-items: center;
@@ -128,7 +129,7 @@ p {
   width: 30%;
 }
 
-/* تنسيق أزرار التنقل */
+/* Navigation button styling */
 .nav-actions {
   display: flex;
   gap: 1rem;
@@ -149,7 +150,7 @@ p {
 }
 
 #login-btn {
-  background-color: var(--primary-color);
+  background-color: #0d4c57;
   border: none;
   color: #fff;
   padding: 10px 20px;
@@ -159,10 +160,10 @@ p {
 }
 
 #login-btn:hover {
-  background-color: var(--primary-border-color);
+  background-color: #b89430;
 }
 
-/* تأثير التمرير على الهيدر */
+/* Header scroll effect */
 #header.scrolled {
   background-color: rgba(213, 181, 101, 1);
   height: 70px;
@@ -170,12 +171,12 @@ p {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* قسم الهيرو */
+/* Hero section */
 .hero-section {
   height: 120vh;
-  background: url('depositphotos.jpg') no-repeat;
+  background: url('../images/realmadrid.jpg') no-repeat;
   background-size: cover;
-  background-position: 10% -20px;
+  background-position: 20% -30px;
   position: relative;
   padding-top: 90px;
   animation: fadeIn 1.5s ease-out;
@@ -211,13 +212,13 @@ p {
   padding: 30px 0;
 }
 
-/* أزرار محتوى الهيرو */
+/* Hero content buttons */
 #content-btn1 {
   background-color: rgba(213, 181, 101, 0.1);
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
@@ -231,17 +232,17 @@ p {
   border: none;
   color: #fff;
   padding: 12px 30px;
-  font-size: 16px;
+  font-size: 20px;
   margin-left: 20px;
   transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 #content-btn2:hover {
-  background-color: #fff;
-  color: var(--primary-border-color);
+  background-color: #0d4c57;
+  color: #ddd;
 }
 
-/* تنسيق حاوية البطاقات */
+/* Cards container (below hero) */
 .cards-container {
   position: absolute;
   bottom: -150px;
@@ -281,7 +282,7 @@ p {
   height: 5px;
 }
 
-/* قسم "من نحن؟" */
+/* About Us section */
 .we-info {
   direction: rtl;
   background-color: #fff8e6;
@@ -329,29 +330,39 @@ p {
 }
 
 .we-info #sport {
-  width: 60%;
+  width: 70%;
   border: 7px solid #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 200px;
   margin-right: 100px;
-  height: 500px;
+  height: 450px;
+  background-image: url('../images/sport.jpg');
+  background-size: cover;
+  background-position: right;
 }
 
-/* قسم العنوان */
+/* Title section */
 #title {
   text-align: center;
   padding: 100px;
   background-color: var(--primary-border-color);
   color: #fff;
-  font-weight: 400;
+  font-size: 30px;
 }
 
-/* قسم بطاقات الرياضات */
+/* Sports cards section */
+#sports {
+  background-color: #fff8e6;
+  padding: 50px 0;
+  text-align: center;
+} 
+
 .sports-container {
   padding: 30px 15px 15px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
   background-color: #fff8e6;
 }
@@ -360,7 +371,7 @@ p {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 32%;
+  width: 300px;
   margin-bottom: 20px;
   overflow: hidden;
   text-align: right;
@@ -368,54 +379,56 @@ p {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
+.sports-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid var(--primary-border-color);
+  border-radius: 10px;
+}
+
 .sports-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.sports-card img {
-  width: 100%;
-  height: 450px;
-  border: 4px solid var(--primary-border-color);
-  border-radius: 10px;
-}
-
 .sports-card h3 {
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   color: var(--primary-border-color);
-  margin: 15px;
+  margin: 10px 10px 5px;
 }
 
 .sports-card span {
-  font-size: 30px;
+  font-size: 1.4rem;
 }
 
 .sports-card p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #465b52;
-  padding: 0 15px 15px;
+  padding: 0 10px 10px;
+  line-height: 1.5;
+  height: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sports-card button {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
-  margin: 15px;
-  font-size: 2rem;
+  margin-right: 10px;
+  font-size: 1.4rem;
   transition: background-color var(--transition-speed) ease;
+  cursor: pointer;
 }
 
 .sports-card button:hover {
   background-color: #b89c4d;
 }
 
-.taekwondo-card {
-  margin: 0 auto;
-}
-
-/* التنسيق المتجاوب */
+/* Responsive design */
 @media (max-width: 768px) {
   .cards-container {
     flex-direction: column;
@@ -430,7 +443,7 @@ p {
   }
 }
 
-/* قسم التواصل */
+/* Contact section */
 .contact-container {
   display: flex;
   flex-wrap: wrap;
@@ -529,7 +542,7 @@ p {
   border: none;
 }
 
-/* تأثيرات الحركة لقسم التواصل */
+/* Animations for contact section */
 @keyframes slideFromLeft {
   from {
     transform: translateX(-100%);
